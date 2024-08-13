@@ -18,10 +18,10 @@ target("App")
 	add_packages("directxtk")
 	add_defines("UNICODE", "NOMINMAX", "WIN32_LEAN_AND_MEAN")
 	add_rules("win.sdk.application")
-	add_cxxflags("cl::/ZI")
-	add_ldflags("-L/INCREMENTAL")
 
 	if is_mode("debug") then
+    	add_cxxflags("cl::/Zi")
+    	add_ldflags("-L/INCREMENTAL")
 		add_defines("_DEBUG")
 		set_runtimes("MDd")
 	elseif is_mode("release") then
